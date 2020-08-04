@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // String titleInput;
-  // String amountInput;
+  String titleInput;
+  String amountInput;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _startAddNewTransaction(BuildContext ctx) {
+  void _openNewTransactionFormModal(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
+            onPressed: () => _openNewTransactionFormModal(context),
           ),
         ],
       ),
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => _startAddNewTransaction(context),
+        onPressed: () => _openNewTransactionFormModal(context),
       ),
     );
   }

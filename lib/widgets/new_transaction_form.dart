@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
-class NewTransactionForm extends StatelessWidget {
+class NewTransactionForm extends StatefulWidget {
   final Function addTx;
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
 
   NewTransactionForm(this.addTx);
+
+  @override
+  _NewTransactionFormState createState() => _NewTransactionFormState();
+}
+
+class _NewTransactionFormState extends State<NewTransactionForm> {
+  final titleController = TextEditingController();
+
+  final amountController = TextEditingController();
 
   void submitData() {
     final enteredTitle = titleController.text;
@@ -15,10 +22,14 @@ class NewTransactionForm extends StatelessWidget {
       return;
     }
 
-    addTx(
+    // widget is a special property which points to the Widget above
+    widget.addTx(
       enteredTitle,
       enteredAmount,
     );
+
+    // automatically closes modal on done
+    Navigator.of(context).pop();
   }
 
   @override
