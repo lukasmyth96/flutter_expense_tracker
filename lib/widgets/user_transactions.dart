@@ -10,12 +10,6 @@ class UserTransactions extends StatefulWidget {
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
-  final List<Transaction> _transactions = [
-    Transaction(
-        id: 't1', title: 'New Shoes', amount: 69.99, date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'White Shirt', amount: 29.39, date: DateTime.now())
-  ];
 
   @override
   Widget build(BuildContext context) {
