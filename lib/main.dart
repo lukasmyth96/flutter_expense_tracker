@@ -23,6 +23,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter App'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.add), onPressed: () {}),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -38,6 +41,8 @@ class MyHomePage extends StatelessWidget {
           UserTransactions(),
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(onPressed: () {}, child: Icon(Icons.add),),
     );
   }
 }
