@@ -49,7 +49,9 @@ class Chart extends StatelessWidget {
       child: Row(
         children: groupedTransactionValues
             .map((tx) => ChartBar(
-                tx['day'], tx['amount'], (tx['amount'] as double) / totalSpendPastWeek))
+                tx['day'],
+                 tx['amount'], 
+                 totalSpendPastWeek == 0.0 ? 0.0 : (tx['amount'] as double) / totalSpendPastWeek))
             .toList()
             .reversed
             .toList(),
