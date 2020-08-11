@@ -14,7 +14,7 @@ class Chart extends StatelessWidget {
         Duration(days: index),
       );
 
-      double totalSum;
+      var totalSum = 0.0;
 
       for (var i = 0; i < recentTransactions.length; i++) {
         if ((recentTransactions[i].date.day == weekDay.day) &&
@@ -24,17 +24,23 @@ class Chart extends StatelessWidget {
         }
       }
 
-      return {'day': DateFormat.E(weekDay), 'amount': totalSum};
+      print(DateFormat.E().format(weekDay));
+      print(totalSum);
+
+      return {'day': DateFormat.E().format(weekDay).substring(0, 1), 'amount': totalSum};
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print(groupedTransactionValues);
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Row(
-        children: <Widget>[],
+        children: groupedTransactionValues
+            .map((tx) => Text('${tx['day']} : ${tx['amount'].toString()}'))
+            .toList().reversed.toList(),
       ),
     );
   }
